@@ -71,7 +71,7 @@ func validateCJK(input string) error {
 }
 
 func main() {
-	fmt.Println("uoffin・ウオフィン")
+	fmt.Println("uoffin・ウオッフィン")
 	newLine()
 
 	label := "Choose a Language"
