@@ -12,6 +12,19 @@ func newLine() {
 	fmt.Print("\n")
 }
 
+func readLine() {
+	scanner := bufio.NewScanner(os.Stdin)
+	prompt := "Send a line"
+
+	fmt.Println(prompt)
+	scanner.Scan()
+	in := scanner.Text()
+	res := "Thanks for the input -> "
+
+	fmt.Printf("%s%s", res, in)
+	newLine()
+}
+
 func promptSelect(label string, items []string) promptui.Select {
 	prompt := promptui.Select{
 		Label: label,
@@ -25,31 +38,19 @@ func main() {
 	fmt.Println("uoffin シ")
 	newLine()
 
-	scanner := bufio.NewScanner(os.Stdin)
-
-	var customPrompt string = "Send a line"
-	fmt.Println(customPrompt)
-
-	scanner.Scan()
-	text := scanner.Text()
-	res := "Thanks for the input -> "
-	fmt.Printf("%s%s", res, text)
-	newLine()
-
-	label := "Choose something"
-	items := []string{
+	label := "Choose a Language"
+	lang := []string{
 		"JP",
 		"CN",
 	}
 
-	prompt := promptSelect(label, items)
-	_, result, err := prompt.Run()
+	promptLang := promptSelect(label, lang)
+	_, result, err := promptLang.Run()
 
 	if err != nil {
 		fmt.Printf("prompt failed -- %v\n", err)
 		return
 	}
 
-	fmt.Printf("You choose %q\n", result)
-
+	fmt.Printf("You answered %s\n", result)
 }
