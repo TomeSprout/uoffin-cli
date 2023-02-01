@@ -35,7 +35,7 @@ func promptSelect(label string, items []string) *promptui.Select {
 }
 
 func main() {
-	fmt.Println("uoffin シ")
+	fmt.Println("uoffin・ウオフィン")
 	newLine()
 
 	label := "Choose a Language"
