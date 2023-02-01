@@ -25,8 +25,8 @@ func readLine() {
 	newLine()
 }
 
-func promptSelect(label string, items []string) promptui.Select {
-	prompt := promptui.Select{
+func promptSelect(label string, items []string) *promptui.Select {
+	prompt := &promptui.Select{
 		Label: label,
 		Items: items,
 	}
