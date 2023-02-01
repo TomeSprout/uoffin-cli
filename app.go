@@ -85,7 +85,7 @@ func main() {
 	_, result, err := promptLang.Run()
 
 	if err != nil {
-		fmt.Printf("prompt failed -- %v\n", err)
+		fmt.Printf("prompt failed %v\n", err)
 		return
 	}
 
