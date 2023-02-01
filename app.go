@@ -52,5 +52,19 @@ func main() {
 		return
 	}
 
+	fmt.Printf("Language Set -- %q\n", result)
+
+	promptSel := "Enter the correct character : "
+	promptSelChar := "あ" // placeholder
+	prompt := promptui.Prompt{
+		Label:     promptSel + promptSelChar,
+	}
+
+	result, err = prompt.Run()
+	if err != nil {
+		fmt.Printf("Prompt failed %v\n", err)
+		return
+	}
+
 	fmt.Printf("You answered %s\n", result)
 }
