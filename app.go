@@ -25,6 +25,18 @@ func readLine() {
 	newLine()
 }
 
+func setTemplate() *promptui.PromptTemplates {
+	template := &promptui.PromptTemplates{
+		Prompt:          "{{ . }} ",
+		ValidationError: "{{ . | italic }}",
+		Valid:           "{{ . | green }} ",
+		Invalid:         "{{ . | red }} ",
+		Success:         "{{ . | blue | underline }} ",
+	}
+
+	return template
+}
+
 func promptSelect(label string, items []string) *promptui.Select {
 	prompt := &promptui.Select{
 		Label: label,
@@ -44,6 +56,7 @@ func main() {
 		"CN",
 	}
 
+	template := setTemplate()
 	promptLang := promptSelect(label, lang)
 	_, result, err := promptLang.Run()
 
@@ -58,6 +71,7 @@ func main() {
 	promptSelChar := "あ" // placeholder
 	prompt := promptui.Prompt{
 		Label:     promptSel + promptSelChar,
+		Templates: template,
 	}
 
 	result, err = prompt.Run()
